@@ -8,7 +8,9 @@ from sklearn.preprocessing import PolynomialFeatures
 
 # ========== CARGA Y PREPROCESAMIENTO ==========
 # Cargar dataset
+
 df = pd.read_csv(r"C:\Users\pablo\Desktop\proyecto2_SostenibilidadComputacional\Datasets_preprocesados\Evolución de los homicidios de hombres y muertes violentas de mujeres y femicidio por sexo de la víctima, 2011-2022 (tasa por 100.000 habitantes).csv")
+
 
 # Asumimos:
 # columna 0 = Variable dependiente (y), columna 1 = Variable independiente (X)
