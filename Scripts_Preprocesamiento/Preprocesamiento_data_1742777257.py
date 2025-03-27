@@ -13,6 +13,6 @@ def preprocess_dataset(input_file, output_file):
     print(f"Preprocesamiento completado. Archivo guardado en: {output_file}")
 
 # Uso del script
-input_file = "Datasets_intactos/data_1742777257.xlsx"  # Reemplazar con la ruta real
+input_file = "Datasets_intactos/data_1742777257.xlsx"  
 output_file = "Datasets_preprocesados/data_1742777257_preprocesado.csv"  
 preprocess_dataset(input_file, output_file)
