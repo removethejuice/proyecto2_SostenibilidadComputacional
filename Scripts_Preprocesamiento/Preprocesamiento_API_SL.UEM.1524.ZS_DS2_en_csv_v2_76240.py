@@ -1,7 +1,7 @@
 import pandas as pd
 
 def preprocess_dataset(input_file, output_file):
-    # Cargar el dataset omitiendo las primeras 5 filas vacías
+    # Cargar el dataset
     df = pd.read_csv(input_file)
     
     # Eliminar espacios extra en los nombres de las columnas
@@ -18,14 +18,19 @@ def preprocess_dataset(input_file, output_file):
         return
     
     # Eliminar columnas innecesarias
-    df.drop(columns=["Country Code", "Indicator Code"], inplace=True)
+    df.drop(columns=["Country Name", "Country Code", "Indicator Name", "Indicator Code"], inplace=True)
     
-    # Eliminar los años vacíos (1960-1991)
-    columns_to_drop = [str(year) for year in range(1960, 1992) if str(year) in df.columns]
-    df.drop(columns=columns_to_drop, inplace=True)
+    # Transformar el dataset para que los años sean una columna y los valores otra
+    df_melted = df.melt(var_name="Año", value_name="Valor")
+    
+    # Convertir la columna "Año" a tipo numérico para poder filtrar correctamente
+    df_melted["Año"] = pd.to_numeric(df_melted["Año"], errors="coerce")
+    
+    # Filtrar solo los años a partir de 1992
+    df_melted = df_melted[df_melted["Año"] >= 1992]
     
     # Guardar el nuevo archivo preprocesado
-    df.to_csv(output_file, index=False)
+    df_melted.to_csv(output_file, index=False)
     
     print(f"Preprocesamiento completado. Archivo guardado en: {output_file}")
 
