@@ -7,7 +7,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 # ========== CARGA Y PREPROCESAMIENTO ==========
 # Cargar dataset
-df = pd.read_csv("../Datasets_preprocesados/dataset.csv")  # Ajusta la ruta según sea necesario
+df = pd.read_csv(r"C:\Users\pablo\Desktop\proyecto2_SostenibilidadComputacional\Datasets_preprocesados\Evolución de los homicidios de hombres y muertes violentas de mujeres y femicidio por sexo de la víctima, 2011-2022 (tasa por 100.000 habitantes).csv")
 
 # Asumimos:
 # columna 0 = Variable dependiente (y), columna 1 = Variable independiente (X)
